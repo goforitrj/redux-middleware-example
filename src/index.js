@@ -4,11 +4,19 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import rootReducer from './modules';
-import myLooger from './middlewares/myLogger';
+import logger from 'redux-logger';
 
-const store = createStore(rootReducer, applyMiddleware(myLooger));
+// import myLooger from './middlewares/myLogger';
+// can use multiple middlewares to applyMiddleware function
+// const store = createStore(rootReducer, applyMiddleware(myLooger, logger));
+
+const store = createStore(
+    rootReducer,
+    composeWithDevTools(applyMiddleware(logger))
+);
 
 ReactDOM.render(
     <Provider store={store}>
