@@ -15,11 +15,11 @@ const posts = [
 ];
 
 export const getPosts = async () => {
-    await sleep(3000);
+    await sleep(1000);
     return posts;
 };
 
 export const getPost = async id => {
-    await sleep(3000);
+    await sleep(1000);
     return posts.find(post => post.id === id);
 };

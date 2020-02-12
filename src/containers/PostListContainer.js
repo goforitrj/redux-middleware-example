@@ -11,7 +11,7 @@ function PostListContainer() {
         dispatch(getPosts());
     }, [dispatch]);
 
-    if (loading) return <div>Loading...</div>;
+    if (loading && !data) return <div>Loading...</div>;
     if (error) return <div>Error..</div>;
     if (!data) return null;
     return <PostList posts={data} />;
